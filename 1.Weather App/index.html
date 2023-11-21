@@ -44,14 +44,11 @@
 
 </html>
 <script>
-    //https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=aeaba92a440f3919e6e310beb494774e
-    const apiKey = "aeaba92a440f3919e6e310beb494774e";
-    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
     const searchBox = document.querySelector(".search input")
     const searchBtn = document.querySelector(".search button")
     const weatherIcon = document.querySelector(".weather-icon")
     async function checkWeather(city) {
-        const res = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=aeaba92a440f3919e6e310beb494774e`);
         if (res.status == 404) {
             document.querySelector(".error").style.display = "block"
             document.querySelector(".weather").style.display = "none"
