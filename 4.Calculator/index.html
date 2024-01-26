@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: blueviolet;
+
+        }
+
+        .container {
+            height: 500;
+            width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 15px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        }
+
+        #display {
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            width: 90%;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            margin-top: 25px;
+        }
+
+        #keyboard {
+
+            width: 90%;
+            margin: auto;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 85px);
+            gap: 20px;
+            height: 450px;
+        }
+
+        #keyboard>div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+
+        .black {
+            background-color: black;
+            color: antiquewhite;
+        }
+
+        .rd {
+            background-color: red;
+            color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Smart Calculator</h1>
+    <div class="container">
+        <div id="display"></div>
+        <div id="keyboard">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div class="black">+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div class="black">-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div class="black">*</div>
+            <div class="rd">C</div>
+            <div>0</div>
+            <div class="black">=</div>
+            <div class="black">/</div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let keys = document.querySelectorAll("#keyboard>div")
+    console.log(keys)
+    let bag = ""
+    for (let i = 0; i < keys.length; i++) {
+        keys[i].addEventListener("click", calculation)
+    }
+    function calculation() {
+        let targetNumber = event.target.innerText
+        console.log(targetNumber)
+        if (targetNumber == "C") {
+            document.querySelector("#display").innerText = ""
+            bag = ""
+        } else if (targetNumber == "=") {
+            let result = eval(bag) || ""
+            document.querySelector("#display").innerText = result
+        } else {
+            bag += targetNumber
+            document.querySelector("#display").innerText = bag
+        }
+    }
+</script>
