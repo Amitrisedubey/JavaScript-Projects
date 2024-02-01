@@ -46,6 +46,7 @@ body {
 .btn:hover:not([disabled]) {
   background: #222;
   color: #fff;
+  transition: ease 0.3s;
 }
 .btn:disabled {
   cursor: no-drop;
