@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .spinner-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .spinner {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 410px;
+            height: 410px;
+            border: 8px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #e21010;
+            animation: spin 1s linear infinite;
+        }
+
+        .spinner-image {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spinner-container">
+        <img src="./API image.png" alt="Your Image" class="spinner-image">
+        <div class="spinner"></div>
+
+    </div>
+</body>
+
+</html>
